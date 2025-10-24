@@ -6,7 +6,7 @@ class Aluno:
         self.notas = {} # Dicionário para lista as notas
 
     def adicionar_nota(self, disciplina, nota):
-        self.notas[disciplina] = nota #[disciplina] e a chave e "nota" e o valor
+        self.notas[disciplina] = nota # [disciplina] e a chave e "nota" e o valor
 
     def calcular_media(self):
         if not self.notas: # se o dicionario estive vazio
