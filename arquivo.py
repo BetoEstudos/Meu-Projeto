@@ -1,6 +1,5 @@
 import json
 
-
 class Arquivo:
     _arquivo = 'name.json'
 
@@ -17,7 +16,3 @@ class Arquivo:
             json.dump(dado, arquivo, indent=4, ensure_ascii=False)
             return True
         return False
-
-    @staticmethod
-    def from_dict(data: dict):
-        return (data["nome"], data["quantidade"], data["preco"])
