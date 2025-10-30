@@ -1,28 +1,59 @@
-import json 
 from aluno import Aluno
 from professor import Professor
+import os
 
-class Menu:
-    def __init__(self):
-        self.arquivo_dados = 'dados.json' # atributo  que guarda o nome do arquivo onde os dados serão lidos
-        self.carregar_dados(self) # chama o metodo carregar dados para iniciar o menu
 
-    def carregar_dados(self):
-        # Aqui você pode adicionar a lógica para converter os dados carregados em objetos Aluno e Professor
-        try:
-            with open(self.arquivo_dados, "r", encoding="UTF-8") as arquivos: # ler e criar a variavel "arquivos"
-                self.dados = json.load(arquivos) # parsear o conteúdo JSON do arquivo e transforma em um dicionário Python
-        except FileNotFoundError: # para error na digitação do nome do arquivo
-            print("Arquivo de dados não encontrado. ") # Inicia com dados vazios ou cria um novo arquivo, se necessário]
-            
-        opcao = input("Deseja criar um novo arquivo de dados? (s/n): ") # Pergunta ao usuário se deseja criar um novo arquivo de dados
-        if opcao =="s":
-            self.dados = {}
-            print("Novo arquivo de dados criado.")
+def menu():
+    def entra():
+        print("--------------ENTRAR--------------")
+        print("1- Aluno")
+        print("2- Professor")
+        print("0- Sair")
+        opcao = input("Escolha uma opção: ")
+
+        if opcao == "1":
+            print("Entrando como Aluno...")
+        elif opcao == "2":
+            print("Entrando como Professor...")
+        elif opcao == "0":
+            print("Saindo...")
+            menu()
+    while True:
+        print("\n-=-=-=- Menu Principal -=-=-=-\n")
+        print("1 - Cadatrar Aluno📝")
+        print("2 - Cadatrar Professor🗒️")
+        print("3 - Entra")
+        print("0 - Sair")
+        opcao = input("\n----> Digite o número correspondente:")
+
+        if opcao == "1":
+            nome = input("Nome: ")
+            cpf = int(input("Cpf: "))
+            matricula = float(input("Matricula: "))
+            curso = input("Curso: ")
+            aluno = Aluno(nome, cpf, matricula, curso)
+            aluno.adicionar_aluno()
+            print("Aluno cadastrado com sucesso!")
+
+        elif opcao == "2":
+            nome = input("Nome: ")
+            cpf = int(input("Cpf: "))
+            disciplina = float(input("Matricula: "))
+            senha = input("Curso: ")
+            professor = Professor(nome, cpf, senha, disciplina)
+            professor.adicionar_professor()
+            print("Professor cadastrado com sucesso!")
+
+        elif opcao == "3":
+            entra()
+
+        elif opcao == "0":
+            print("Saindo...")
+            os.system("cls")
+            break
         else:
-            print("Continuando sem criar um novo arquivo.")
-            exit()
+            print("Opção inválida!")
+            os.system("cls")
 
-        def salvar_dados(self):
-            with open(self.arquivo_dados, "w", encoding="UTF-8") as arquivos: # abrir o arquivo em modo de escrita
-                json.dump(self.dados, arquivos, indent=4, ensure_ascii = False) # salvar os dados no arquivo em formato JSON
+if __name__ == "__main__":
+    menu()
