@@ -1,28 +1,105 @@
-import json 
+import json
+import os
 from aluno import Aluno
 from professor import Professor
 
-class Menu:
-    def __init__(self):
-        self.arquivo_dados = 'dados.json' # atributo  que guarda o nome do arquivo onde os dados serão lidos
-        self.carregar_dados(self) # chama o metodo carregar dados para iniciar o menu
 
-    def carregar_dados(self):
-        # Aqui você pode adicionar a lógica para converter os dados carregados em objetos Aluno e Professor
-        try:
-            with open(self.arquivo_dados, "r", encoding="UTF-8") as arquivos: # ler e criar a variavel "arquivos"
-                self.dados = json.load(arquivos) # parsear o conteúdo JSON do arquivo e transforma em um dicionário Python
-        except FileNotFoundError: # para error na digitação do nome do arquivo
-            print("Arquivo de dados não encontrado. ") # Inicia com dados vazios ou cria um novo arquivo, se necessário]
-            
-        opcao = input("Deseja criar um novo arquivo de dados? (s/n): ") # Pergunta ao usuário se deseja criar um novo arquivo de dados
-        if opcao =="s":
-            self.dados = {}
-            print("Novo arquivo de dados criado.")
+def menu():
+    def entrar():
+        print("--------------ENTRAR--------------")
+        print("1- Aluno")
+        print("2- Professor")
+        print("0- Voltar")
+        opcao = input("Escolha uma opção: ")
+
+        if opcao == "1":
+            print("Entrando como Aluno...")
+            cpf = input("Digite seu CPF: ")
+
+            try:
+                with open('alunos.json', 'r', encoding='utf-8') as f:
+                    dados = json.load(f)
+            except FileNotFoundError:
+                print("Arquivo de alunos não encontrado.")
+                return
+
+            encontrado = False
+            for aluno_data in dados:
+                if cpf == str(aluno_data['cpf']):
+                    encontrado = True
+                    print("\n=== Dados do aluno ===")
+                    print(f"Nome: {aluno_data['nome']}")
+                    print(f"CPF: {aluno_data['cpf']}")
+                    print(f"Curso: {aluno_data['curso']}")
+                    print("mostrar nota")
+                    
+
+            if not encontrado:
+                print("❌ Aluno não encontrado.")
+
+        elif opcao == "2":
+            print("\n-=-=-=- Menu Professor -=-=-=-\n")
+            print("1 - Adicionar Nota📝")
+            print("2 - Adicionar Disciplina📚")
+            print("0 - Voltar")
+            escolha_prof = input("\n----> Digite o número correspondente: ")
+
+            if escolha_prof == "1":
+                cpf_aluno = input("Digite o CPF do aluno: ")
+                disciplina = input("Digite a disciplina: ")
+                nota = float(input("Digite a nota: "))
+                Professor.adicionar_nota(cpf_aluno, disciplina, nota)
+
+        elif opcao == "0":
+            return
+
+    # Loop principal do menu
+    while True:
+        print("\n-=-=-=- Menu Principal -=-=-=-\n")
+        print("1 - Cadastrar Aluno📝")
+        print("2 - Cadastrar Professor🗒️")
+        print("3 - Remover Usuário❌")
+        print("4 - Entrar🔐")
+        print("0 - Sair🚪")
+        opcao = input("\n----> Escolha uma opção: ")
+
+        if opcao == "1":
+            nome = input("Nome: ")
+            cpf = input("CPF: ")
+            matricula = input("Matrícula: ")
+            curso = input("Curso: ")
+            aluno_obj = Aluno(nome, cpf, matricula, curso)
+            aluno_obj.adicionar_aluno()
+            print("✅ Aluno cadastrado com sucesso!")
+
+        elif opcao == "2":
+            nome = input("Nome: ")
+            cpf = input("CPF: ")
+            disciplina = input("Disciplina: ")
+            prof = Professor(nome, cpf, disciplina)
+            prof.adicionar_professor()
+            print("✅ Professor cadastrado com sucesso!")
+
+        elif opcao == "3":
+            tipo = input("Digite 'A' para aluno e 'P' para professor: ").lower()
+            cpf2 = input("Digite o CPF: ").strip()
+
+            if tipo == "a":
+                Aluno.remover_aluno(cpf2)
+            elif tipo == "p":
+                Professor.remover_professor(cpf2)
+            else:
+                print("Tipo inválido!")
+
+        elif opcao == "4":
+            entrar()
+
+        elif opcao == "0":
+            print("Saindo...")
+            os.system("cls" if os.name == "nt" else "clear")
+            break
         else:
-            print("Continuando sem criar um novo arquivo.")
-            exit()
+            print("❌ Opção inválida!")
 
-        def salvar_dados(self):
-            with open(self.arquivo_dados, "w", encoding="UTF-8") as arquivos: # abrir o arquivo em modo de escrita
-                json.dump(self.dados, arquivos, indent=4, ensure_ascii = False) # salvar os dados no arquivo em formato JSON
+if __name__ == "__main__":
+    menu()

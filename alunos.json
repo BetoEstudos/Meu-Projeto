@@ -1,0 +1,18 @@
+[
+    [
+        {
+            "nome": "",
+            "cpf": 1,
+            "matricula": 1.0,
+            "curso": "1",
+            "disciplinas": {}
+        }
+    ],
+    {
+        "nome": "Hebert Lemuel",
+        "cpf": 9125907506,
+        "matricula": 1.0,
+        "curso": "Informatica",
+        "disciplinas": {}
+    }
+]
