@@ -1,34 +1,13 @@
 [
     {
-        "nome": "",
-        "cpf": 1,
-        "matricula": 1.0,
-        "curso": "1",
-        "disciplinas": {}
-    },
-    {
-        "nome": "Hebert Lemuel",
-        "cpf": 9125907506,
-        "matricula": 1.0,
-        "curso": "Informatica",
-        "disciplinas": {}
-    },
-    {
-        "nome": "Jubiscleudo",
-        "cpf": "001",
-        "matricula": "55555",
-        "curso": "Informática",
-        "disciplinas": {
-            "Matemática - 1º Trimestre": [
-                10.0
-            ]
-        }
-    },
-    {
         "nome": "Eberth",
         "cpf": "555",
         "matricula": "321",
         "curso": "Informatica",
-        "disciplinas": {}
+        "disciplinas": {
+            "Matemática - 3º Trimestre": [
+                9.5
+            ]
+        }
     }
 ]

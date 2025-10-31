@@ -1,8 +1,7 @@
 import json
 import os
 
-
-arquivo = 'alunos.json'
+arquivo = "alunos.json"
 
 
 def _flatten_list(data):
@@ -19,9 +18,10 @@ def _flatten_list(data):
             result.append(item)
     return result
 class Usuario:
-    def __init__(self, nome, cpf):
-        self.nome=nome
-        self.cpf=cpf
+    def __init__(self, nome, cpf, senha=None):
+        self.nome = nome
+        self.cpf = cpf
+        self.senha = senha
 
 class Aluno(Usuario):
     aluno = []

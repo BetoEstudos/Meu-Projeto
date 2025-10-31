@@ -1,8 +1,41 @@
 [
+    [
+        [
+            [
+                [],
+                {
+                    "nome": "hebert",
+                    "cpf": "001",
+                    "senha": "123",
+                    "disciplina": [
+                        "matematica"
+                    ]
+                }
+            ],
+            {
+                "nome": "Hebert Lemuel",
+                "cpf": "002",
+                "senha": "001",
+                "disciplina": [
+                    "Quimica"
+                ]
+            }
+        ],
+        {
+            "nome": "KKK",
+            "cpf": "005",
+            "senha": "321",
+            "disciplina": [
+                "Minecraft"
+            ]
+        }
+    ],
     {
-        "nome": 2,
-        "cpf": "2",
-        "senha": 2.0,
-        "disciplina": []
+        "nome": "Mororó",
+        "cpf": "222",
+        "senha": "123",
+        "disciplina": [
+            "Matemática "
+        ]
     }
 ]

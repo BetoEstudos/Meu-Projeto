@@ -23,12 +23,13 @@ def _flatten_list(items):
 
 class Professor(Usuario):
     professor = []
-    def __init__(self, nome, cpf, disciplina=None):
+    def __init__(self, nome, cpf, senha, disciplina=None):
+        self.senha = senha
         """Inicializa um Professor.
 
         Accepta um valor único de `disciplina` ou uma lista de disciplinas.
         """
-        super().__init__(nome, cpf)
+        super().__init__(nome, cpf, senha)
         # aceita disciplina como None, str ou lista
         if disciplina is None:
             self.disciplina = []
@@ -42,6 +43,7 @@ class Professor(Usuario):
         return {
             "nome": self.nome,
             "cpf": self.cpf,
+            "senha": self.senha,
             "disciplina": self.disciplina
         }
 
