@@ -68,7 +68,8 @@ def menu():
 
             if escolha_prof == "1":
                 cpf_aluno = input("Digite o CPF do aluno: ")
-                disciplina = input("Digite a disciplina: ")
+                print("Digite Disciplina - Trimestre")
+                disciplina = input()
                 nota = float(input("Digite a nota: "))
                 Professor.adicionar_nota(cpf_aluno, disciplina, nota)
             elif escolha_prof == "2":

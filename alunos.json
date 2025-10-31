@@ -1,18 +1,27 @@
 [
-    [
-        {
-            "nome": "",
-            "cpf": 1,
-            "matricula": 1.0,
-            "curso": "1",
-            "disciplinas": {}
-        }
-    ],
+    {
+        "nome": "",
+        "cpf": 1,
+        "matricula": 1.0,
+        "curso": "1",
+        "disciplinas": {}
+    },
     {
         "nome": "Hebert Lemuel",
         "cpf": 9125907506,
         "matricula": 1.0,
         "curso": "Informatica",
         "disciplinas": {}
+    },
+    {
+        "nome": "Jubiscleudo",
+        "cpf": "001",
+        "matricula": "55555",
+        "curso": "Informática",
+        "disciplinas": {
+            "Matemática - 1º Trimestre": [
+                10.0
+            ]
+        }
     }
 ]
