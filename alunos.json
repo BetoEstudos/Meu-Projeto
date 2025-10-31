@@ -23,5 +23,12 @@
                 10.0
             ]
         }
+    },
+    {
+        "nome": "Eberth",
+        "cpf": "555",
+        "matricula": "321",
+        "curso": "Informatica",
+        "disciplinas": {}
     }
 ]

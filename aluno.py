@@ -18,14 +18,16 @@ def _flatten_list(data):
         elif isinstance(item, dict):
             result.append(item)
     return result
+class Usuario:
+    def __init__(self, nome, cpf):
+        self.nome=nome
+        self.cpf=cpf
 
-
-class Aluno():
+class Aluno(Usuario):
     aluno = []
 
     def __init__(self, nome, cpf, matricula, curso):
-        self.nome = nome
-        self.cpf = cpf
+        super().__init__(nome, cpf)
         self.matricula = matricula
         self.curso = curso
         self.disciplinas = {}  # Dicionário para lista as notas

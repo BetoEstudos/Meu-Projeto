@@ -1,11 +1,12 @@
 import os
 import json
+from aluno import Usuario
 
 arquivo = 'professores.json'
 
 
 def _flatten_list(items):
-    """Retorna uma lista plana apenas com dicionários a partir de uma lista possivelmente aninhada."""
+    """Retorna uma lista plana apenas com dicionários a partir de uma lista possivelmente aninhada."""4
     flat = []
     if not isinstance(items, list):
         return flat
@@ -20,15 +21,14 @@ def _flatten_list(items):
     return flat
 
 
-class Professor:
+class Professor(Usuario):
     professor = []
     def __init__(self, nome, cpf, disciplina=None):
         """Inicializa um Professor.
 
         Accepta um valor único de `disciplina` ou uma lista de disciplinas.
         """
-        self.nome = nome
-        self.cpf = cpf
+        super().__init__(nome, cpf)
         # aceita disciplina como None, str ou lista
         if disciplina is None:
             self.disciplina = []
