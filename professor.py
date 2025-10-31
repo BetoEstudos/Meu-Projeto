@@ -6,7 +6,7 @@ arquivo = 'professores.json'
 
 
 def _flatten_list(items):
-    """Retorna uma lista plana apenas com dicionários a partir de uma lista possivelmente aninhada."""4
+    """Retorna uma lista plana apenas com dicionários a partir de uma lista possivelmente aninhada."""
     flat = []
     if not isinstance(items, list):
         return flat
